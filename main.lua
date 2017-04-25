@@ -3,11 +3,13 @@ local cjson = require('cjson')
 local lfs = require('lfs')
 
 -- load up the other files
+lfs.chdir('/home/pi/slow-gif')
 local mode = {}
 mode['slowGif'] = require('slowGif')
 mode['realtime'] = require('realtime')
 
 -- change to this dir from cron
+lfs.mkdir('/home/pi/slow-gif/photos')
 lfs.chdir('/home/pi/slow-gif/photos')
 
 -- load any generic file
@@ -77,5 +79,5 @@ local function displayPhotos(photos, config)
 end
 
 config = readConfig('config.json')
---downloadAndProcessPhotos(config.photos)
+downloadAndProcessPhotos(config.photos)
 displayPhotos(config.photos, config.config)
