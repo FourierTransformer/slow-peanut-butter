@@ -24,7 +24,7 @@ end
 -- versa for the width.
 
 local x, y, newheight, newwidth = 0, 0, NATIVE_HEIGHT, NATIVE_WIDTH
-if width > height then
+if width > height and (NATIVE_WIDTH/NATIVE_HEIGHT < width/height) then
     newwidth = NATIVE_WIDTH
     newheight = height * (NATIVE_WIDTH / width)
     x = 0
