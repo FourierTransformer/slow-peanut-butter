@@ -18,7 +18,7 @@ RUN curl -O -L http://ffmpeg.org/releases/ffmpeg-3.3.tar.bz2 && tar -xvjf ffmpeg
 RUN cd /ffmpeg-3.3 && ./configure --arch=armel --target-os=linux --enable-gpl --enable-omx --enable-omx-rpi --enable-nonfree && make -j4 && make install
 
 # download and install info-beamer
-curl -O -L https://info-beamer.com/jump/download/player/info-beamer-pi-0.9.7-beta.fdb57f-jessie.tar.gz && tar xf info-beamer-pi-0.9.7-beta.fdb57f-jessie.tar.gz && cd info-beamer && mv info-beamer /usr/bin
+RUN curl -O -L https://info-beamer.com/jump/download/player/info-beamer-pi-0.9.7-beta.fdb57f-jessie.tar.gz && tar xf info-beamer-pi-0.9.7-beta.fdb57f-jessie.tar.gz && cd info-beamer-pi && mv info-beamer /usr/bin
 
 # re-set my entrypoint?
 ENTRYPOINT ["/bin/bash"]
